@@ -1,9 +1,8 @@
 import SS
 import numpy as np
 
-#periods
+# Model parameters
 S = int(100)
-# model parameters
 alpha = 0.3
 delta = 0.1
 A = 1.0

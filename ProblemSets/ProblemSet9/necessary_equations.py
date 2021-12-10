@@ -8,7 +8,7 @@ import numpy as np
 def get_c(r, w, b_s, b_sp1, n_s):
     '''
     Find consumption using the budget constraint and the choice of savings (b_sp1)
-    See eqn (4.6)
+    Eqn (4.6)
     '''
     c = (1 + r) * b_s + w * n_s - b_sp1
     return c
@@ -37,7 +37,7 @@ def mu_c_func(c, sigma):
 def hh_foc_c(w, b_s, b_sp1, n_s, beta, sigma, r):
     '''
     Define the household first order conditions of c
-    See eqn (4.10)
+    Eqn (4.10)
     '''
     #beta, sigma, r = params
     c = get_c(r, w, b_s, b_sp1, n_s)
@@ -51,7 +51,7 @@ def hh_foc_c(w, b_s, b_sp1, n_s, beta, sigma, r):
 def hh_foc_l(w, b_s, b_sp1, n_s, l_tilde, chi, b_radius, v, beta, sigma, r):
     '''
     Define the household first order conditions of n
-    See eqn (4.9)
+    Eqn (4.9)
     '''
     #beta, sigma, r = params
     c = get_c(r, w, b_s, b_sp1, n_s)
@@ -83,8 +83,7 @@ def FOCs(w, b_s, b_sp1, n_s, l_tilde, chi, b_radius, v, b_guess, beta, sigma, r)
 #Firms' problem: (4.13) and (4.14) at ss
 def get_r(K, L, alpha, delta, A):
     '''
-    Compute the interest rate from
-    the firm's FOC
+    Compute the interest rate from the firm's FOC
     '''
     #alpha, delta, A = params_firms
 
@@ -94,8 +93,7 @@ def get_r(K, L, alpha, delta, A):
 
 def get_w(r, alpha, delta, A):
     '''
-    Solve for the w that is consistent
-    with r from the firm's FOC
+    Solve for the w that is consistent with r from the firm's FOC
     '''
     #alpha, delta, A = params_firms
     w = (1 - alpha) * A * ((alpha * A) / (r + delta)) ** (alpha / (1 - alpha))
@@ -122,8 +120,8 @@ def get_K(b):
 
 #leave it here in case need it
 def get_C(c):
-    # indexing from 1 since the summation starts at E + 1, not E
-    C = c[1:].sum()
+    # Function to compute aggregate capital supplied
+    C = c.sum()
 
     return C
 
